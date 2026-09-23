@@ -1,4 +1,6 @@
 import { AIMessage } from 'langchain';
+import { getSystemPrompt } from '../../prompts/v1/agentNode.ts';
+import { type IntentData, IntentSchema } from '../../prompts/v1/identifyIntent.ts';
 import { OpenRouterService } from '../../services/openRouterService.ts';
 import type { GraphState } from '../state.ts';
 
@@ -7,12 +9,28 @@ export function intentNode(openRouterService: OpenRouterService) {
         console.log('🧠 Intent node processing...');
         try {
             const rawQuestion = state.messages.at(-1)!.text as string;
+            const result = await openRouterService.generateStructured(
+                getSystemPrompt(),
+                rawQuestion,
+                IntentSchema
+            );
 
+            const parsed = result.data as IntentData | undefined;
+            if (!parsed?.intent || !parsed.fileType) {
+                console.log('Missing intent or fileType in parsed result:', parsed);
+                throw new Error('Missing intent or fileType in parsed result');
+            }
+
+            parsed.fileName ??= `data.${parsed.fileType}`;
+
+            console.log('extracted intent:', parsed.intent);
+            console.log('file type:', parsed.fileType);
+            console.log('file name:', parsed.fileName);
 
             return {
-                intent: '',
-                fileContent: '{}',
-                fileName: 'report.json',
+                intent: parsed.intent,
+                fileContent: parsed.fileContent || '{}',
+                fileName: parsed.fileName,
             };
 
         } catch (error) {
