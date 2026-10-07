@@ -1,7 +1,7 @@
 {
   "name": "multiple-mcp-tools",
   "version": "1.0.0",
-  "description": "LangGraph agent that wraps SerpAPI Google Trends as a LangChain tool to answer video content strategy questions",
+  "description": "Learning project for building a LangGraph agent that uses MCP tools to process CSV data, store it in MongoDB, and write reports",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
@@ -18,7 +18,7 @@
     "prompt-chaining",
     "openrouter"
   ],
-  "author": "erickwendel",
+  "author": "Igor Faustino",
   "license": "MIT",
   "dependencies": {
     "@langchain/core": "^1.2.12",
