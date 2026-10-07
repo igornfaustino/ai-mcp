@@ -22,7 +22,7 @@ export const config: ModelConfig = {
   httpReferer: '',
   xTitle: 'IA Devs - Transforming Services into Tools',
   models: [
-    'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free',
+    'dots-studio/dots-3-note-preview:free',
   ],
   provider: {
     sort: {

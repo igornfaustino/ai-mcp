@@ -1,0 +1,16 @@
+TOP 5 MOST SOLD PRODUCTS RANKING
+=================================
+
+1. beans - 4 sales
+2. shampoo - 1 sale
+3. soap - 1 sale
+4. toothpaste - 1 sale
+5. rice - 1 sale
+
+ANALYSIS SUMMARY:
+- Total products analyzed: 5 unique products
+- Total sales records: 8 transactions
+- Best selling product: beans with 4 sales (50% of total sales)
+- Products with single sales: shampoo, soap, toothpaste, rice
+
+The data shows that beans was the dominant product, accounting for half of all sales transactions. The remaining four products each had exactly one sale, resulting in a tie for positions 2-5.
